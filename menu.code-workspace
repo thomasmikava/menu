@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"editor.formatOnSave": false,
+		"editor.codeActionsOnSave": {
+			"source.fixAll": true,
+			"source.fixAll.eslint": true,
+		},
+		"editor.tabSize": 2,
+		"[prisma]": {
+			"editor.defaultFormatter": "Prisma.prisma"
+		},
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint",
+		"typescript.format.insertSpaceAfterOpeningAndBeforeClosingEmptyBraces": false,
+		"cSpell.words": [
+			"collmise",
+			"craco",
+			"dishcard",
+			"fastify",
+			"Flexenda",
+			"markable",
+			"mealcard",
+			"middlewares",
+			"notistack",
+			"rgba",
+			"sonarjs",
+			"stafly",
+			"tanstack",
+			"uncapitalize"
+		],
+	},
+}

@@ -12,6 +12,15 @@
   font-size: 20px;
   cursor: pointer;
   margin-right: 10px;
+  line-height: 24px;
+  background: #008913;
+  border: none;
+  padding: 4px 10px;
+  color: white;
+  border-radius: 4px;
+}
+.header button:hover {
+  background: #00b017;
 }
 
 .mealcard {
@@ -26,12 +35,28 @@
   margin-bottom: 10px;
   font-size: 30px;
   font-weight: bold;
+  position: sticky;
+  top: 40px;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.85);
+  padding-bottom: 2px;
+}
+
+.mealcard.completed>.title {
+  font-size: 20px;
+  color: green;
 }
 
 .mealcard>.dishes {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+@media screen and (max-width: 550px) {
+  .mealcard>.dishes {
+    justify-content: center;
+  } 
 }
 
 .dishcard {
@@ -48,6 +73,8 @@
   font-weight: normal;
   text-align: center;
   font-size: 24px;
+  line-height: 30px;
+  width: 100%;
 }
 
 .dishcard>.photo {
@@ -56,6 +83,22 @@
   background-size: cover;
   background-position: center;
   position: relative;
+}
+
+.dishcard.completed {
+  display: flex;
+  align-items: center;
+}
+.dishcard.completed>.title {
+  font-size: 16px;
+  line-height: 18px;
+}
+.dishcard.completed>.photo {
+  width: 44px;
+  height: auto;
+  min-height: 44px;
+  flex-shrink: 0;
+  align-self: stretch;
 }
 
 .checkbox {

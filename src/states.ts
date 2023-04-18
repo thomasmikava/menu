@@ -35,6 +35,28 @@ export const MenuTempStore = createStore({
 });
 
 export const MenuStore = createStorageStore({
-  defaultValue: tempValue,
+  defaultValue: { ...tempValue, completedIds: { ...tempValue.selectedIds } },
   storageKey: '__menu__menuStore',
+  storageValueValidator: (data) => {
+    return !!data && typeof data === 'object' && 'selectedIds' in data && 'completedIds' in data;
+  },
+}).addReducers({
+  completeDish: (value, { dishId, mealId }: { dishId: IdType; mealId: IdType }) => {
+    return {
+      ...value,
+      completedIds: {
+        ...value.completedIds,
+        [mealId]: { ...value.completedIds[mealId], [dishId]: true },
+      },
+    };
+  },
+  uncompleteDish: (value, { dishId, mealId }: { dishId: IdType; mealId: IdType }) => {
+    return {
+      ...value,
+      completedIds: {
+        ...value.completedIds,
+        [mealId]: { ...value.completedIds[mealId], [dishId]: false },
+      },
+    };
+  },
 });

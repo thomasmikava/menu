@@ -9,13 +9,14 @@ interface DishProps {
 export interface MealCardUIProps {
   meal: Meal;
   dishes: Dish[];
+  isMealCompleted: boolean;
   renderDish: (props: DishProps) => ReactElement;
   renderEmptyState: () => ReactElement;
 }
 
-const MealCardUI: FC<MealCardUIProps> = memo(({ meal, dishes, renderDish, renderEmptyState }) => {
+const MealCardUI: FC<MealCardUIProps> = memo(({ meal, dishes, isMealCompleted, renderDish, renderEmptyState }) => {
   return (
-    <div className='mealcard'>
+    <div className={'mealcard ' + (isMealCompleted ? 'completed' : '')}>
       <h1 className='title'>{meal.name}</h1>
       <div className='dishes'>{dishes.map((dish) => renderDish({ dish }))}</div>
       {dishes.length === 0 && renderEmptyState()}

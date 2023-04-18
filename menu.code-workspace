@@ -30,7 +30,8 @@
 			"sonarjs",
 			"stafly",
 			"tanstack",
-			"uncapitalize"
+			"uncapitalize",
+			"uncomplete"
 		],
 	},
 }

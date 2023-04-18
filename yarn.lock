@@ -7505,6 +7505,13 @@ react-app-polyfill@^3.0.0:
     regenerator-runtime "^0.13.9"
     whatwg-fetch "^3.6.2"
 
+react-context-subscribers@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/react-context-subscribers/-/react-context-subscribers-0.0.2.tgz#2b1e17c4f90c4d2679fefdd5d5002395dd2648a0"
+  integrity sha512-9swSuYOfU4Ie2ttiT6wCooa4GIlUXaMyxnIrMRNR/57Sf1vkGfI/mDBsqSdGBbzYV8cm4EDsMHspLGHjm3a86A==
+  dependencies:
+    simple-subscriptions "^0.0.3"
+
 react-dev-utils@^12.0.1:
   version "12.0.1"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-12.0.1.tgz#ba92edb4a1f379bd46ccd6bcd4e7bc398df33e73"
@@ -8075,6 +8082,11 @@ signal-exit@^3.0.2, signal-exit@^3.0.3:
   resolved "https://registry.yarnpkg.com/signal-exit/-/signal-exit-3.0.7.tgz#a9a1767f8af84155114eaabd73f99273c8f59ad9"
   integrity sha512-wnD2ZE+l+SPC/uoS0vXeE9L1+0wuaMqKlfz9AMUo38JsyLSBWSFcHR1Rri62LZc12vLr1gb3jl7iwQhgwpAbGQ==
 
+simple-subscriptions@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/simple-subscriptions/-/simple-subscriptions-0.0.3.tgz#b5b4df2f84d68b9c85df450cbd9a1fcb2c023bd0"
+  integrity sha512-pKrF4WvmCrVDPtOnSynMh3E2Jh1ah9KyPPJw/2XXNmD9o/ODFxhf1/O+GOtxPwF85V3mGH3KmRaRe43uSv6H6Q==
+
 sisteransi@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/sisteransi/-/sisteransi-1.0.5.tgz#134d681297756437cc05ca01370d3a7a571075ed"
@@ -8192,6 +8204,14 @@ stackframe@^1.3.4:
   version "1.3.4"
   resolved "https://registry.yarnpkg.com/stackframe/-/stackframe-1.3.4.tgz#b881a004c8c149a5e8efef37d51b16e412943310"
   integrity sha512-oeVtt7eWQS+Na6F//S4kJ2K2VbRlS9D43mAlMyVpVWovy9o+jfgH8O9agzANzaiLjclA0oYzUXEM4PurhSUChw==
+
+stafly@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/stafly/-/stafly-0.0.3.tgz#8e071d656f54f1eea3cb5b2777c87bf24121ec55"
+  integrity sha512-Nx0La9q8Nj5DtHz4+7JB/wRVZXB/ngPRuOoTeq8n0SSHaNB49nGlRyKeRLKwijP6c3GMFFF65BEihh3ZG9JQHw==
+  dependencies:
+    react-context-subscribers "^0.0.2"
+    simple-subscriptions "^0.0.3"
 
 statuses@2.0.1:
   version "2.0.1"

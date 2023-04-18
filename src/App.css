@@ -11,6 +11,7 @@
 .header button {
   font-size: 20px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .mealcard {
@@ -78,4 +79,9 @@
   top: 10px;
   left: 10px;
   position: absolute;
+}
+
+.empty-plate img {
+  width: 200px;
+  opacity: 0.5;
 }

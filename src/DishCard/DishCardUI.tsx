@@ -1,6 +1,7 @@
 import type { FC } from 'react';
 import { memo } from 'react';
 import type { Dish, IdType } from '../data/types';
+import { getPublicURL } from '../utils';
 
 export interface DishCardUIProps {
   dish: Dish;
@@ -21,7 +22,7 @@ const DishCardUI: FC<DishCardUIProps> = memo(({ dish, isSelected, onCheck, isEdi
       <div
         className='photo'
         style={{
-          backgroundImage: `url(${dish.imageURL ?? '/assets/img/fallback.jpg'})`,
+          backgroundImage: `url(${getPublicURL(dish.imageURL ?? '/assets/img/fallback.jpg')})`,
         }}
       >
         {onCheck && (

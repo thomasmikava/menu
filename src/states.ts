@@ -36,5 +36,5 @@ export const MenuTempStore = createStore({
 
 export const MenuStore = createStorageStore({
   defaultValue: tempValue,
-  storageKey: '__menu',
+  storageKey: '__menu__menuStore',
 });

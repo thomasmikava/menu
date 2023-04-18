@@ -9,3 +9,9 @@ export const removeFromSet = <T>(set: Set<T>, item: T): Set<T> => {
   newValue.delete(item);
   return newValue;
 };
+
+export const getPublicURL = (url: string) => {
+  if (url[0] !== '/') return url;
+  const publicURL = process.env['PUBLIC_URL'] ?? '';
+  return `${publicURL}${url}`;
+};

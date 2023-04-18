@@ -6,6 +6,7 @@ import DishCardUI from './DishCard/DishCardUI';
 import MealCardBL from './MealCard/MealCardBL';
 import MealCard from './MealCard/MealCardUI';
 import { EditModeStore, MenuStore, MenuTempStore } from './states';
+import { getPublicURL } from './utils';
 
 const App = () => {
   const mode = EditModeStore.useValue();
@@ -25,7 +26,7 @@ const App = () => {
               )}
               renderEmptyState={() => (
                 <div className='empty-plate'>
-                  <img src='/assets/img/empty-plate.png' alt='not found' />
+                  <img src={getPublicURL('/assets/img/empty-plate.png')} alt='not found' />
                 </div>
               )}
             />

@@ -4,6 +4,7 @@ import { memo } from 'react';
 import { dishes } from '../data/dishes';
 import type { Meal } from '../data/types';
 import { MenuStore } from '../states';
+import { isNonNullable } from '../utils';
 import type { MealCardUIProps } from './MealCardUI';
 
 interface Props {
@@ -18,7 +19,11 @@ const MealCardBL: FC<Props> = memo(({ meal, isEditing, children }) => {
     completedIds: { [meal.id]: mealCompletedDishIds },
   } = MenuStore.useValue();
   const mealDishes = useMemo(
-    () => dishes.filter((dish) => (isEditing || !!mealIdSelections?.[dish.id]) && meal.dishes.includes(dish.id)),
+    () =>
+      meal.dishes
+        .filter((dishId) => isEditing || !!mealIdSelections?.[dishId])
+        .map((id) => dishes.find((dish) => dish.id === id))
+        .filter(isNonNullable),
     [meal.dishes, mealIdSelections, isEditing]
   );
   const isEmpty = mealDishes.length === 0;

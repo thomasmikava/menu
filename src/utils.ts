@@ -15,3 +15,13 @@ export const getPublicURL = (url: string) => {
   const publicURL = process.env['PUBLIC_URL'] ?? '';
   return `${publicURL}${url}`;
 };
+
+export const isNonNullable = <T>(val: T): val is NonNullable<T> => {
+  return val !== undefined && val !== null;
+};
+
+export const scrollTo = (element: HTMLElement, yOffset = 0, behavior: ScrollBehavior = 'smooth') => {
+  const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({ top: y, behavior });
+};

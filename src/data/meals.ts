@@ -4,7 +4,7 @@ export const meals: Meal[] = [
   {
     id: 1,
     name: 'საუზმე',
-    dishes: [1, 2, 3, 4, 21],
+    dishes: [1, 2, 3, 4, 24, 22, 23, 21],
   },
   {
     id: 2,
@@ -14,7 +14,7 @@ export const meals: Meal[] = [
   {
     id: 3,
     name: 'სადილი',
-    dishes: [7, 8, 9, 21],
+    dishes: [7, 8, 9, 25, 21],
   },
   {
     id: 4,

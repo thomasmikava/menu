@@ -126,4 +126,14 @@ export const dishes: Dish[] = [
     name: 'ლობიანი',
     imageURL: '/assets/img/dishes/lobiani.jpg',
   },
+  {
+    id: 26,
+    name: 'თხილეული',
+    imageURL: '/assets/img/dishes/nuts.jpg',
+  },
+  {
+    id: 27,
+    name: 'ჩირი',
+    imageURL: '/assets/img/dishes/dried-fruit.jpg',
+  },
 ];

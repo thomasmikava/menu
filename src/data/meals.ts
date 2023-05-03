@@ -9,12 +9,12 @@ export const meals: Meal[] = [
   {
     id: 2,
     name: 'საუზმის წახემსება',
-    dishes: [5, 6, 26, 27, 21],
+    dishes: [5, 6, 26, 27, 26, 21],
   },
   {
     id: 3,
     name: 'სადილი',
-    dishes: [7, 8, 9, 25, 21],
+    dishes: [7, 8, 9, 25, 26, 21],
   },
   {
     id: 4,
@@ -24,11 +24,11 @@ export const meals: Meal[] = [
   {
     id: 5,
     name: 'ვახშამი',
-    dishes: [15, 16, 19, 21],
+    dishes: [15, 16, 19, 26, 21],
   },
   {
     id: 6,
     name: 'პოსტ ვახშამი',
-    dishes: [17, 18, 21],
+    dishes: [17, 18, 26, 21],
   },
 ];

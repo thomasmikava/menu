@@ -9,6 +9,9 @@ import type { MealCardUIRef } from './MealCard/MealCardUI';
 import MealCard from './MealCard/MealCardUI';
 import { EditModeStore } from './states';
 import { getPublicURL, scrollTo } from './utils';
+import { CustomDishCardUI, CustomDishModalUI } from './CustomDish/CustomDishUI';
+import CustomDishBL, { CustomDishEditModalBl } from './CustomDish/CustomDishBL';
+import type { CustomDish } from './data/types';
 
 const App = () => {
   const mode = EditModeStore.useValue();
@@ -41,9 +44,30 @@ const App = () => {
               ref={refs[meal.id]}
               renderDish={({ dish }) => (
                 <DishCardBL dish={dish} mealId={meal.id} key={dish.id} isEditing={mode === 'edit'}>
-                  {(props) => <DishCardUI {...props} />}
+                  {(props) => (
+                    <>
+                      <DishCardUI {...props} />
+                      {props.onEdit && props.isModalOpen && (
+                        <CustomDishEditModalBl
+                          dish={dish as CustomDish}
+                          onClose={props.onModalClose}
+                          renderModal={(p) => <CustomDishModalUI {...p} />}
+                        />
+                      )}
+                    </>
+                  )}
                 </DishCardBL>
               )}
+              renderAddDish={
+                mode === 'edit'
+                  ? () => (
+                      <CustomDishBL
+                        renderCard={(props) => <CustomDishCardUI {...props} />}
+                        renderModal={(props) => <CustomDishModalUI {...props} />}
+                      />
+                    )
+                  : undefined
+              }
               renderEmptyState={() => (
                 <div className='empty-plate'>
                   <img src={getPublicURL('/assets/img/empty-plate.png')} alt='not found' />

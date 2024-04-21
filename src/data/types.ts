@@ -11,3 +11,9 @@ export interface Dish {
   name: string;
   imageURL?: string;
 }
+
+export interface CustomDish {
+  id: IdType;
+  name: string;
+  enabledMealIds: number[];
+}

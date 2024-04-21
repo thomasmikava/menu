@@ -161,4 +161,19 @@ export const dishes: Dish[] = [
     name: 'კატლეტი',
     imageURL: '/assets/img/dishes/katleti.jpg',
   },
+  {
+    id: 33,
+    name: 'ვაშლი',
+    imageURL: '/assets/img/dishes/apple.jpg',
+  },
+  {
+    id: 34,
+    name: 'ფახიტასი',
+    imageURL: '/assets/img/dishes/faxitas.png',
+  },
+  {
+    id: 35,
+    name: 'ისპანახი',
+    imageURL: '/assets/img/dishes/isp.jpg',
+  },
 ];

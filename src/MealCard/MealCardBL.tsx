@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { memo } from 'react';
 import { dishes } from '../data/dishes';
 import type { Meal } from '../data/types';
-import { MenuStore } from '../states';
+import { CustomDishesStore, MenuStore } from '../states';
 import { isNonNullable } from '../utils';
 import type { MealCardUIProps } from './MealCardUI';
 
@@ -18,6 +18,7 @@ const MealCardBL: FC<Props> = memo(({ meal, isEditing, children }) => {
     selectedIds: { [meal.id]: mealIdSelections },
     completedIds: { [meal.id]: mealCompletedDishIds },
   } = MenuStore.useValue();
+  const customDishes = CustomDishesStore.useValue();
   const mealDishes = useMemo(
     () =>
       meal.dishes
@@ -25,6 +26,13 @@ const MealCardBL: FC<Props> = memo(({ meal, isEditing, children }) => {
         .map((id) => dishes.find((dish) => dish.id === id))
         .filter(isNonNullable),
     [meal.dishes, mealIdSelections, isEditing]
+  );
+  const myCustomDishes = useMemo(
+    () =>
+      customDishes
+        .filter((dish) => dish.enabledMealIds.includes(meal.id))
+        .filter((dish) => isEditing || !!mealIdSelections?.[dish.id]),
+    [customDishes, meal.id, isEditing, mealIdSelections]
   );
   const isEmpty = mealDishes.length === 0;
 
@@ -35,6 +43,7 @@ const MealCardBL: FC<Props> = memo(({ meal, isEditing, children }) => {
   return children({
     meal,
     dishes: mealDishes,
+    customDishes: myCustomDishes,
     isMealCompleted,
   });
 });

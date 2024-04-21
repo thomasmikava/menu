@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 import { createStore } from 'stafly';
-import type { IdType } from './data/types';
+import type { CustomDish, IdType } from './data/types';
 import { createStorageStore } from './stafly';
 
 export const EditModeStore = createStore({
@@ -58,5 +58,25 @@ export const MenuStore = createStorageStore({
         [mealId]: { ...value.completedIds[mealId], [dishId]: false },
       },
     };
+  },
+});
+
+export const CustomDishesStore = createStorageStore({
+  defaultValue: [] as CustomDish[],
+  storageKey: '__menu__customDishes',
+  storageValueValidator: (data) => {
+    return !!data && typeof data === 'object' && Array.isArray(data);
+  },
+}).addReducers({
+  add: (value, newDish: Omit<CustomDish, 'id'>): CustomDish[] => {
+    const minId = Math.min(0, ...value.map((e) => e.id));
+    const newId = minId - 1;
+    return [...value, { ...newDish, id: newId }];
+  },
+  delete: (value, id: IdType) => {
+    return value.filter((e) => e.id !== id);
+  },
+  edit: (value, newDish: CustomDish) => {
+    return value.map((e) => (e.id === newDish.id ? newDish : e));
   },
 });
